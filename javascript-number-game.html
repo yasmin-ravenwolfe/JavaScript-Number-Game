@@ -1,0 +1,154 @@
+<html>
+<head>
+  <title>Javascript Bare</title>
+</head>
+<body>
+	<label>Pick a Number from 1-100:</label>
+	<label id="response"></label>
+	<br/>
+	<label> Don't pick the landmine number or you automatically lose!</label>
+	<br />
+	<input id="user-input" type="text" />
+	<input id="submit-button" type="button" value="Guess" />
+	<input id="new-game" type="button" value="Start new game" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+
+
+
+// var secretNumber=parseInt(Math.random()*100,10) +1;
+
+// var numberGame = function() {
+// var number = prompt("Choose a number between 1-100");
+// 	if (number==secretNumber) {
+// 		alert("Correct!");
+// 	}
+// 	else if (number>secretNumber) {
+// 		alert('pick lower');
+// 		numberGame();
+// 	}
+// 	else  { 
+// 		alert('pick higher');
+// 		numberGame();
+// 	}
+// }
+// numberGame()
+// $('#submit-button').on('click', function() {
+// 	var input = $('#user-input').val();
+// 	alert('You typed in: ' + input);
+// });
+
+// This works
+// var secretNumber=parseInt(Math.random()*100,10) +1;
+
+// $('#submit-button').on('click', function() {
+// 	var number = $('#user-input').val();	
+// 	if (number==secretNumber) {
+// 	 $('#response').text("Exactly!");
+// }
+// 	else if (number>secretNumber) {
+// 	  $('#response').text("Pick lower!");
+	  
+// 	}
+// 	else  { 
+//    $('#response').text('Pick higher');
+	  
+// 	}
+// });
+// Trying landmind number 
+
+var secretNumber=parseInt(Math.random()*100,10) +1;
+var landmineNumber=parseInt(Math.random()*100,10) +1;
+var difference= landmineNumber-secretNumber
+
+$('#submit-button').on('click', function() {
+	var number = $('#user-input').val();
+	if (number==landmineNumber){
+		$('#response').text("Ah, landmine! You lose!");
+	}
+
+	else {
+
+		if (difference < 0){
+			difference = -1 * difference;
+		}
+	
+		if (number==secretNumber) {
+	 	  $('#response').text("Exactly!");
+		}
+		else if (number>secretNumber) {
+	       response="Pick lower!";
+	       var difference= landmineNumber-number;
+	       	if (difference < 0){
+				difference = -1 * difference;
+			}
+			console.log(landmineNumber, secretNumber);
+			$('#response').text(" Be careful! You are " +difference+ " numbers away from the landmine number!");
+			console.log(secretNumber);
+		}
+		else  { 
+   		   response='Pick higher!';  
+   		   var difference= landmineNumber-number;
+   		   	if (difference < 0){
+				difference = -1 * difference;
+			}
+			$('#response').text(" Be careful! You are " +difference+ " numbers away from the landmine number!");
+			console.log(secretNumber);
+		};
+};
+});
+
+
+$('#new-game').on('click', function() {
+	var number = $('#user-input').val();	
+	alert('A new game has started!');
+	$('#user-input').val('');
+	if (number==secretNumber) {
+	 $('#response').text("Exactly!");
+}
+	else if (number>secretNumber) {
+	  $('#response').text("Pick lower!");
+	  
+	}
+	else  { 
+   $('#response').text('Pick higher');
+	  
+	}
+});
+
+// How to set the boolean 
+var Game = function(guess) {
+	
+}
+	this.guess=function(input){
+		if (number==secretNumber) {
+	 		$('#response').text("Exactly!");
+		}
+		else if (number>secretNumber) {
+	  		$('#response').text("Pick lower!");
+	  
+		}
+		else  { 
+   			$('#response').text('Pick higher');
+	  
+		}
+	};
+
+	
+
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+// var game = new Game(true);
+//  //inside event handler
+//  //..
+// var input= ($'#user-input').val();
+// game.guess(input);
+//..
+
+// Constructor function
+// generate random number in constructor function; will look similar to Car function from "javascript Wed.html"
+
+</script>
+
+</body>
+</html>
